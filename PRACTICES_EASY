@@ -1,0 +1,14 @@
+1. /*Duplicate Table for Comparison*/
+
+select E.name as employee
+from employee as E, employee as M
+where E.managerid = M.id and E.salary>M.salary;
+
+
+2. /*uses LEFT JOIN to combine tables*/
+
+select firstname, lastname, city, state
+from Person left join Address on person.personid = address.personid;
+
+
+
