@@ -10,5 +10,10 @@ where E.managerid = M.id and E.salary>M.salary;
 select firstname, lastname, city, state
 from Person left join Address on person.personid = address.personid;
 
+3. /* get Duplicate Emails using GROUPBY to squezz out the unique emails*/
+/* remember when creadting table countnum, include email in it */
 
+select email 
+from (select email, count(id) as num from person group by email) as countnum 
+where num>1;
 
