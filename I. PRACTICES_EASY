@@ -28,8 +28,7 @@ from (select name, count(orders.id) as num from customers left join orders on cu
 where num=0;
 */
 
-/* using sub-query and not in to substract ordered names from all names */
+/* using NOT IN and remember need to have a sub-query here */
 
-select name as customers
-from customers
-where customers.id not in (select customerid from orders );
+select name from customers
+where customers.id not in (select customerid from orders);
