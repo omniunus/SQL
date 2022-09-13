@@ -10,6 +10,7 @@ where E.managerid = M.id and E.salary>M.salary;
 select firstname, lastname, city, state
 from Person left join Address on person.personid = address.personid;
 
+
 3. /* get Duplicate Emails using GROUPBY to squezz out the unique emails*/
 /* remember when creadting table countnum, include email in it */
 
@@ -17,3 +18,18 @@ select email
 from (select email, count(id) as num from person group by email) as countnum 
 where num>1;
 
+
+4. /* Customers Who Never Order */
+
+/* only count once when same name customers appear */
+/* wrong
+select name as customers
+from (select name, count(orders.id) as num from customers left join orders on customers.id = orders.customerid group by name) as t 
+where num=0;
+*/
+
+/* using sub-query and not in to substract ordered names from all names */
+
+select name as customers
+from customers
+where customers.id not in (select customerid from orders );
