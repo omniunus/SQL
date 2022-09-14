@@ -23,8 +23,20 @@ MySQL SELF JOIN is using INNER JOIN
    Eg: SELECT xx FROM Table t1, Table t2 WHERE xxCondition;
    Eg: DELETE xx FROM Table t1, Table t2 WHERE xxCondition;
    
+
+2. difference between WHERE and ON
+   SELECT xx from t1 INNER JOIN t2 WHERE conditions;
+   SELECT xx from t1 INNER JOIN t2 ON conditions;
    
-2. DELETE
+   The ON clause defines the relationship between the tables.
+   The WHERE clause describes which rows you are interested in.
+   
+   ususally give same results, however when using left join:
+   If the ON clause fails, we still get a row with columns from the left table but with NULLs in the columns from the right table.
+   If the WHERE clause fails we can't get the row at all.
+
+
+3. DELETE
    DELETE FROM xxTable
    WHERE xxCondition;
    
