@@ -53,3 +53,6 @@ MySQL SELF JOIN is using INNER JOIN
    HAVING condition
    ORDER BY column_name(s);
    
+5. DISTINCT
+   DISTINCT is used after SELECT, not in WHERE
+   
