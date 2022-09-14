@@ -4,6 +4,7 @@
 1. JOIN, INNER JOIN, LEFT JOIN, SELF JOIN
 
    JOIN
+   by default, join means INNER JOIN
    SELECT xx FROM xxTable INNER JOIN xxxTable USING (xx)
 or
    SELECT xx FROM Table1 INNER JOIN Table2 on xx.Table1 = xx.Table2
