@@ -13,7 +13,8 @@ LEFT JOIN
 
 SELF JOIN
    Use it when need to compare same table rows, (or hierarchical data)
-   Eg: 
+   Eg: SELECT xx FROM Table t1, Table t2 WHERE xxCondition;
+   Eg: DELETE xx FROM Table t1, Table t2 WHERE xxCondition;
    
    
 2. DELETE
