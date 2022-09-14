@@ -27,3 +27,21 @@
   SELECT name FROM customer WHERE referee_id != 2 OR referee_id is null;
   
   
+4.596. Classes More Than 5 Students
+
+  # Write your MySQL query statement below
+  
+  SELECT class
+  FROM (SELECT count(student) as c, class FROM courses GROUP BY class) AS t1
+  WHERE c >=5;
+  
+  
+  # a better way searching only once use
+    DISTINCT and COUNT
+    
+   SELECT class
+   FROM course
+    
+  
+  
+  
