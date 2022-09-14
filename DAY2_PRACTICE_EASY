@@ -17,3 +17,13 @@
 
   SELECT name, bonus FROM Employee LEFT JOIN bonus USING (empid)
   WHERE bonus < 1000 OR bonus IS NULL;
+
+
+3.584. Find Customer Referee
+
+  /*Tricky since some referee id is NULL and we wish to include it
+  Observe the Data! Before Doing */ 
+  
+  SELECT name FROM customer WHERE referee_id != 2 OR referee_id is null;
+  
+  
