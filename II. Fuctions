@@ -1,0 +1,14 @@
+1. INNER JOIN, LEFT JOIN, SELF JOIN
+
+INNER JOIN
+   Match each keys from one table to another, in Venn diagram it's the middle part, like what we have for A & B.
+   If something only exist in one table but not the other, that part would not be shown after appllied inner join.
+   
+LEFT JOIN
+   Most commonly used.  For joining two tables together using a same key. Everything in the left table will be included but for the right table is not.
+   Eg: select xx from t1 left join t2 on t1.xxx = t2.xxx;
+
+SELF JOIN
+   Use it when need to compare same table rows, (or hierarchical data)
+   Eg: select 
+   
