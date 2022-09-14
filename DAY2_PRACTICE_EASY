@@ -1,11 +1,19 @@
 1.197. Rising Temperature
 
-way1
-/* use DATADIFF*/
-SELECT w1.id as Id FROM weather w1 inner join weather w2 
-where DATEDIFF(w1.recorddate,w2.recorddate) = 1 and w1.temperature>w2.temperature;
+  way1
+  /* use DATADIFF*/
+  SELECT w1.id as Id FROM weather w1 inner join weather w2 
+  where DATEDIFF(w1.recorddate,w2.recorddate) = 1 and w1.temperature>w2.temperature;
 
-way2
-/* use subdate(DATE, SUBSTRACT NUM)*/
-SELECT w1.id from weather w1, weather w2
-WHERE SUBDATE(w1.recorddate,1) = w2.recorddate AND w1.temperature > w2.temperature;
+  way2
+  /* use subdate(DATE, SUBSTRACT NUM)*/
+  SELECT w1.id from weather w1, weather w2
+  WHERE SUBDATE(w1.recorddate,1) = w2.recorddate AND w1.temperature > w2.temperature;
+
+
+2.577. Employee Bonus
+
+  /*define IS NULL in WHERE*/
+
+  SELECT name, bonus FROM Employee LEFT JOIN bonus USING (empid)
+  WHERE bonus < 1000 OR bonus IS NULL;
