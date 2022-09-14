@@ -36,7 +36,20 @@ MySQL SELF JOIN is using INNER JOIN
    If the WHERE clause fails we can't get the row at all.
 
 
-3. DELETE
-   DELETE FROM xxTable
+3. SELECT and DELETE
+   SELECT xx FROM xxTable
    WHERE xxCondition;
+   
+   DELETE xx FROM xxTable
+   WHERE xxCondition;
+   
+4. primary orders!
+   SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY
+
+   SELECT column_name(s)
+   FROM table_name
+   WHERE condition
+   GROUP BY column_name(s)
+   HAVING condition
+   ORDER BY column_name(s);
    
