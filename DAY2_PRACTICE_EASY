@@ -36,11 +36,23 @@
   WHERE c >=5;
   
   
-  # a better way searching only once use
-    DISTINCT and COUNT
+  # a better way searching only once use HAVING
     
-   SELECT class
-   FROM course
+  SELECT class FROM courses
+  GROUP BY class
+  HAVING COUNT(DISTINCT student) >=5;
+  
+  # using HAVING COUNT(DISTINCT student) >= 5 is better, but not having distinct is fine here
+  
+  SELECT class FROM courses 
+  GROUP BY class
+  HAVING COUNT(student) >= 5
+
+5. 6. 
+
+7. 597. Friend Requests I: Overall Acceptance Rate
+
+
     
   
   
