@@ -1,3 +1,6 @@
+0. USE xxDatabase; SELECT * FROM XXTABLE;
+   View the table in a database.
+
 1. INNER JOIN, LEFT JOIN, SELF JOIN
 
 INNER JOIN
@@ -10,5 +13,10 @@ LEFT JOIN
 
 SELF JOIN
    Use it when need to compare same table rows, (or hierarchical data)
-   Eg: select 
+   Eg: 
+   
+   
+2. DELETE
+   DELETE FROM xxTable
+   WHERE xxCondition;
    
