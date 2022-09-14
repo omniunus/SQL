@@ -32,3 +32,16 @@ where num=0;
 
 select name from customers
 where customers.id not in (select customerid from orders);
+
+
+5. use DELETE and SELF JOIN to Delete Duplicate Emails
+
+
+/* 
+Please write a DELETE statement and DO NOT write a SELECT statement.
+Write your T-SQL query statement below
+*/
+
+/* works on MySQL but not MySQL Server */
+delete from person where id not in
+(select * from (select min(id) from person group by email) as p);
