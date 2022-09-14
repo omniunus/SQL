@@ -1,7 +1,12 @@
 0. USE xxDatabase; SELECT * FROM XXTABLE;
    View the table in a database.
 
-1. INNER JOIN, LEFT JOIN, SELF JOIN
+1. JOIN, INNER JOIN, LEFT JOIN, SELF JOIN
+
+   JOIN
+   SELECT xx FROM xxTable INNER JOIN xxxTable USING (xx)
+or
+   SELECT xx FROM Table1 INNER JOIN Table2 on xx.Table1 = xx.Table2
 
 INNER JOIN
    Match each keys from one table to another, in Venn diagram it's the middle part, like what we have for A & B.
@@ -12,6 +17,7 @@ LEFT JOIN
    Eg: select xx from t1 left join t2 on t1.xxx = t2.xxx;
 
 SELF JOIN
+MySQL SELF JOIN is using INNER JOIN
    Use it when need to compare same table rows, (or hierarchical data)
    Eg: SELECT xx FROM Table t1, Table t2 WHERE xxCondition;
    Eg: DELETE xx FROM Table t1, Table t2 WHERE xxCondition;
