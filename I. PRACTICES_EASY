@@ -45,3 +45,17 @@ Write your T-SQL query statement below
 /* works on MySQL but not MySQL Server */
 delete from person where id not in
 (select * from (select min(id) from person group by email) as p);
+
+
+
+
+/* process for MySQLboth */
+
+/* do the self join, same email records would be listed one after the other*/
+SELECT p1 FROM person p1, person p2 WHERE p1.email = p2.email;
+
+/* find the bigger id and prepare to delete it */
+SELECT p1 FROM person p1, person p2 WHERE p1.email = p2.email and p1.id >p2.id;
+
+/* delete the bigger id part */
+DELETE p1 FROM person p1, person p2 WHERE p1.email = p2.email and p1.id >p2.id;
