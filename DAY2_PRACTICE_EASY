@@ -52,7 +52,33 @@
 
 7. 597. Friend Requests I: Overall Acceptance Rate
 
+  # do the main construction first:
 
+  SELECT
+  ()/()
+  AS accept_rate
+
+
+  # main part using SELECT DISTINCT
+  SELECT
+  (SELECT COUNT(*) FROM (SELECT DISTINCT requester_id, accepter_id FROM RequestAccepted) AS T1)
+  /
+  (SELECT COUNT(*) FROM (SELECT DISTINCT sender_id, send_to_id FROM FriendRequest) AS T2)
+  AS accept_rate
+
+
+  # add round(xx,2); ifnull(xx,0)
+  SELECT
+  ROUND(
+  IFNULL(
+  (SELECT COUNT(*) FROM (SELECT DISTINCT requester_id, accepter_id FROM RequestAccepted) AS T1)
+  /
+  (SELECT COUNT(*) FROM (SELECT DISTINCT sender_id, send_to_id FROM FriendRequest) AS T2)
+  ,0)
+  ,2)
+  AS accept_rate
+
+# notice IFNULL(xx,0) is important when using table gatherings to do calculations
     
   
   
