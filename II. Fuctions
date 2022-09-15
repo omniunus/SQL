@@ -55,4 +55,11 @@ MySQL SELF JOIN is using INNER JOIN
    
 5. DISTINCT
    DISTINCT is used after SELECT, not in WHERE
+   DISTINCT does not have ()
+   
+   SELECT DISTINCT xx,xxx FROM t1
+ 
+
+6. IFNULL(xx,0)
+   is important when using table gatherings to do calculations
    
