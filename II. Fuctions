@@ -23,6 +23,35 @@ MySQL SELF JOIN is using INNER JOIN
    Eg: SELECT xx FROM Table t1, Table t2 WHERE xxCondition;
    Eg: DELETE xx FROM Table t1, Table t2 WHERE xxCondition;
    
+   Here is how self join look like, it has all the combinations as monto caro simulation
+   If there are 9 items, after self join, it will be 81 items.
+   
+      Cinema table:
+   +---------+------+
+   | seat_id | free |
+   +---------+------+
+   | 1       | 1    |
+   | 2       | 0    |
+   | 3       | 1    |
+   | 4       | 1    |
+   | 5       | 1    |
+   +---------+------+
+   
+   SELECT a.seat_id, a.free, b.seat_id, b.free
+   from cinema a join cinema b;
+   
+   Seat_idFreeSeat_idFree
+         1	1	1	1
+         2	0	1	1
+         3	1	1	1
+         4	1	1	1
+         5	1	1	1
+         
+         1	1	2	0
+         2	0	2	0
+         3	1	2	0
+         4	1	2	0
+         5	1	2	0
 
 2. difference between WHERE and ON
    SELECT xx from t1 INNER JOIN t2 WHERE conditions;
