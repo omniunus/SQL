@@ -138,3 +138,52 @@ SELECT * FROM company LEFT JOIN orders USING (com_id) WHERE name = 'RED'
 SELECT salesperson.name FROM salesperson WHERE sales_id NOT IN
 (SELECT orders.sales_id FROM orders LEFT JOIN company USING (com_id) 
  WHERE company.name = 'RED')
+
+4. 610. Triangle Judgement
+Write an SQL query to report for every three line segments whether they can form a triangle.
+Return the result table in any order.
+
+Input: 
+Triangle table:
++----+----+----+
+| x  | y  | z  |
++----+----+----+
+| 13 | 15 | 30 |
+| 10 | 20 | 15 |
++----+----+----+
+Output: 
++----+----+----+----------+
+| x  | y  | z  | triangle |
++----+----+----+----------+
+| 13 | 15 | 30 | No       |
+| 10 | 20 | 15 | Yes      |
++----+----+----+----------+
+
+# use CASE... END
+
+SELECT x,y,z
+, CASE WHEN x + y > z AND x + z > y AND y + z > x THEN 'Yes' ELSE 'No'
+  END AS triangle
+
+FROM triangle;
+
+
+5.613. Shortest Distance in a Line
+
+Write an SQL query to report the shortest distance between any two points from the Point table.
+
+Input: 
+Point table:
++----+
+| x  |
++----+
+| -1 |
+| 0  |
+| 2  |
++----+
+Output: 
++----------+
+| shortest |
++----------+
+| 1        |
++----------+
