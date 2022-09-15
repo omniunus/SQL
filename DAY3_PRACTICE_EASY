@@ -187,3 +187,10 @@ Output:
 +----------+
 | 1        |
 +----------+
+SELECT MIN(ABS(p1.x - p2.x)) as shortest
+FROM point p1 , point p2 WHERE p1.x != p2.x
+
+# FROM XX INNER JOIN XX ON XX would be better
+# check the function file to see diff between WHERE & ON
+SELECT MIN(ABS(p1.x - p2.x)) as shortest
+FROM point p1 , point p2 ON p1.x != p2.x
