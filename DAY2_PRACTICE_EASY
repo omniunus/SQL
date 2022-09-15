@@ -1,4 +1,14 @@
 1.197. Rising Temperature
+  +---------------+---------+
+  | Column Name   | Type    |
+  +---------------+---------+
+  | id            | int     |
+  | recordDate    | date    |
+  | temperature   | int     |
+  +---------------+---------+
+
+  Write an SQL query to find all dates' Id with higher temperatures compared to its previous dates (yesterday).
+  Return the result table in any order.
 
   way1
   /* use DATADIFF*/
@@ -10,6 +20,9 @@
   SELECT w1.id from weather w1, weather w2
   WHERE SUBDATE(w1.recorddate,1) = w2.recorddate AND w1.temperature > w2.temperature;
 
+8. 603. Consecutive Available Seats
+
+# similar witht eh rising temp prob
 
 2.577. Employee Bonus
 
@@ -28,8 +41,6 @@
   
   
 4.596. Classes More Than 5 Students
-
-  # Write your MySQL query statement below
   
   SELECT class
   FROM (SELECT count(student) as c, class FROM courses GROUP BY class) AS t1
