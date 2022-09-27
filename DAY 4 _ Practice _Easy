@@ -1,0 +1,34 @@
+1. 620. Not Boring Movies
+  need to have odd idd
+  WHERE id%2 != 0
+  A FASTER WAY: mod(id, 2) = 1
+  MOD(x,y) returns the remainder of x divided by another number y 
+ 
+2. 511. Game Play Analysis I
+
+3. 262. Trips and Users (HARD)
+https://leetcode.com/problems/trips-and-users/
+
+learnt: 
+  FROM table t
+  WHERE xxx not in (select ...)
+  CASE when xxx then ... else...
+
+
+  way 1, use CASE:
+  select t.request_at as 'Day',
+    round(sum(CASE when t.status like 'cancelled%' then 1 else 0 end) / count(t.status), 2) as 'Cancellation Rate'
+  from trips t
+  where t.client_id not in (select users_id from users where banned = 'Yes')
+  and t.driver_id not in (select users_id from users where banned = 'Yes')
+  and t.request_at between '2013-10-01' and '2013-10-03'
+  group by t.Request_at
+
+  way 2, use IF
+  select t.Request_at Day,
+       ROUND((count(IF(t.status!='completed',TRUE,null))/count(*)),2) as 'Cancellation Rate'
+  from Trips t 
+  where t.Client_Id in (Select Users_Id from Users where Banned='No') 
+  and t.Driver_Id in (Select Users_Id from Users where Banned='No')
+  and t.request_at between '2013-10-01' and '2013-10-03'
+  group by t.Request_at;
