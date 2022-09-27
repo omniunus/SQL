@@ -14,7 +14,6 @@ learnt:
   WHERE xxx not in (select ...)
   CASE when xxx then ... else...
 
-
   way 1, use CASE:
   select t.request_at as 'Day',
     round(sum(CASE when t.status like 'cancelled%' then 1 else 0 end) / count(t.status), 2) as 'Cancellation Rate'
@@ -32,3 +31,21 @@ learnt:
   and t.Driver_Id in (Select Users_Id from Users where Banned='No')
   and t.request_at between '2013-10-01' and '2013-10-03'
   group by t.Request_at;
+
+4. again. 603. Consecutive Available Seats 
+https://leetcode.com/problems/consecutive-available-seats/
+learnt: abs()
+self join gives a monte carol simulation
+
+select distinct c1.seat_id as seat_id
+from cinema c1 join cinema c2 
+where abs(c1.seat_id - c2.seat_id) = 1
+and c1.free = 1 and c2.free= 1 order by c1.seat_id;
+
+5. 1757. Recyclable and Low Fat Products
+https://leetcode.com/problems/recyclable-and-low-fat-products/
+
+6. 627. Swap Salary
+https://leetcode.com/problems/swap-salary/
+
+UPDATE table SET ...
