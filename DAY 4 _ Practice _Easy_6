@@ -49,3 +49,14 @@ https://leetcode.com/problems/recyclable-and-low-fat-products/
 https://leetcode.com/problems/swap-salary/
 
 UPDATE table SET ...
+
+Solution 1:
+  UPDATE salary
+  SET sex = IF (sex = "m", "f", "m");
+
+Solution 2:
+
+  UPDATE salary
+  SET
+      sex = CASE sex WHEN 'm' THEN 'f' ELSE 'm'
+      END;
