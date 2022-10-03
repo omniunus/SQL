@@ -46,11 +46,30 @@ and c1.free = 1 and c2.free= 1 order by c1.seat_id;
 https://leetcode.com/problems/recyclable-and-low-fat-products/
 
 6. 627. Swap Salary
+UPDATE table SET ...
 https://leetcode.com/problems/swap-salary/
 
-UPDATE table SET ...
+ Salary
+
++-------------+----------+
+| Column Name | Type     |
++-------------+----------+
+| id          | int      |
+| name        | varchar  |
+| sex         | ENUM     |
+| salary      | int      |
++-------------+----------+
+id is the primary key for this table.
+The sex column is ENUM value of type ('m', 'f').
+The table contains information about an employee.
+
+Write an SQL query to swap all 'f' and 'm' values 
+(i.e., change all 'f' values to 'm' and vice versa) with a single update statement and no intermediate temporary tables.
+
+Note that you must write a single update statement, do not write any select statement for this problem.
 
 Solution 1:
+
   UPDATE salary
   SET sex = IF (sex = "m", "f", "m");
 
