@@ -1,0 +1,67 @@
+1. 1050. Actors and Directors Who Cooperated At Least Three Times
+ActorDirector
+
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| actor_id    | int     |
+| director_id | int     |
+| timestamp   | int     |
++-------------+---------+
+timestamp is the primary key column for this table.
+
+Write a SQL query for a report that provides the pairs (actor_id, director_id) 
+where the actor has cooperated with the director at least three times.
+
+Return the result table in any order.
+
+Use GROUP BY in a Clever Way
+
+  select actor_id, director_id
+  from actordirector
+  group by actor_id, director_id
+  having count(timestamp) >=3;
+  
+2. 511. Game Play Analysis I
+similar with the logic above
+
+3. 1141. User Activity for the Past 30 Days I
+
+NOTICE: when write DATEDIFF ('large date','small date') remember to have ''
+
+Write an SQL query to find the daily active user count for a period of 30 days ending 2019-07-27 inclusively. A user was active on someday if they made at least one activity on that day.
+Return the result table in any order.
+The query result format is in the following example.
+
+Input: 
+Activity table:
++---------+------------+---------------+---------------+
+| user_id | session_id | activity_date | activity_type |
++---------+------------+---------------+---------------+
+| 1       | 1          | 2019-07-20    | open_session  |
+| 1       | 1          | 2019-07-20    | scroll_down   |
+| 1       | 1          | 2019-07-20    | end_session   |
+| 2       | 4          | 2019-07-20    | open_session  |
+| 2       | 4          | 2019-07-21    | send_message  |
+| 2       | 4          | 2019-07-21    | end_session   |
+| 3       | 2          | 2019-07-21    | open_session  |
+| 3       | 2          | 2019-07-21    | send_message  |
+| 3       | 2          | 2019-07-21    | end_session   |
+| 4       | 3          | 2019-06-25    | open_session  |
+| 4       | 3          | 2019-06-25    | end_session   |
++---------+------------+---------------+---------------+
+Output: 
++------------+--------------+ 
+| day        | active_users |
++------------+--------------+ 
+| 2019-07-20 | 2            |
+| 2019-07-21 | 2            |
++------------+--------------+ 
+Explanation: Note that we do not care about days with zero active users.
+
+select activity_date as day, count(distinct user_id)as active_users
+from activity
+where datediff('2019-07-27',activity_date) <30
+group by activity_date;
+
+4. 1142. User Activity for the Past 30 Days II
