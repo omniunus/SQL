@@ -46,7 +46,10 @@ and c1.free = 1 and c2.free= 1 order by c1.seat_id;
 https://leetcode.com/problems/recyclable-and-low-fat-products/
 
 6. 627. Swap Salary
-UPDATE table SET ...
+
+UPDATE table 
+SET col = if(col = xxx,...,...)
+
 https://leetcode.com/problems/swap-salary/
 
  Salary
@@ -76,7 +79,6 @@ Solution 1:
 Solution 2:
 
   UPDATE salary
-  SET
-      sex = CASE sex WHEN 'm' THEN 'f' ELSE 'm'
+  SET sex = CASE sex WHEN 'm' THEN 'f' ELSE 'm'
       END;
 
