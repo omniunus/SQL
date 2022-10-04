@@ -121,3 +121,9 @@ ORDER BY
     WHEN City IS NULL THEN Country
     ELSE City
 END);
+
+8. Update Col attributes
+
+UPDATE Table
+SET col = if(col = xxx,...,...)
+
